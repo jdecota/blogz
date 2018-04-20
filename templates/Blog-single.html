@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+
+    <div>
+        <a href='/logout'>log out</a>
+    </div>
+    </head>
+<body>
+
+
+{% block content %}
+    
+    {% for post in blogs %}
+        
+    <ol>
+        <li><h2>{{post.title}}</h2></li>
+    </ol>
+        <ol>
+            <li>{{post.body}}</li>
+        </ol>               
+    {% endfor %}
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category,message in messages %}
+            <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+        </ul>
+        
+{% endblock %}

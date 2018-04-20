@@ -1,0 +1,25 @@
+<style>
+div {
+	height: 50px;
+	width: 120px;
+	border-color: #6495ED;
+	background-color: #BCD2EE;
+    border-style: solid;
+    border-width: 2px;
+}
+
+
+form {
+	background-color: #eee;
+	padding: 20px;
+	margin: 0 auto;
+	width: 540px;
+	font: 16px sans-serif;
+	border-radius: 10px;
+}
+textarea {
+	margin: 10px 0;
+	width: 540px;
+	height: 120px;
+}
+</style>

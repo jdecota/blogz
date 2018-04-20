@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> 
+    <link rel="stylesheet" href="/css/styles.css"> -->
+    <title></title>
+        <header></header>   
+  
+</head>
+<style>
+        .error {
+            color: red;
+        }
+    </style>
+<body> 
+    <nav>   
+        <a href="/blog">Main Page</a> |
+        <a href="/newpost">Add New Blog</a> |
+    <!--display: block;-->
+
+    </nav> 
+
+    {% with messages = get_flashed_messages() %}
+        <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}   
+
+{% block content %}                                 <!-- place code to define block/extension points -->
+
+{% endblock %} 
+
+<!--    
+    <area shape="rect" coords="0,0,82,126" href="localhost:5000/blog" alt="blog">
+    <area shape="circle" coords="90,58,3" href="localhost:5000/newpost" alt="Add New Entry">
+    <a href= "www.localhost:5000/blog">Main Page</a>
+    <a href="www.localhost:5000/newpost">Add New Entry</a> 
+-->   
+            <!--  BUTTON- ADD MAIN PAGE GET BUTTON-->
+            <!-- BUTTON - ADD A BLOG ENTRY to direct to /newpost-->
+<!--            
+    <div>
+        <form method="GET" action="/">
+            <button type="submit">Main Page</button>
+        </form>
+    </div>
+    <div>
+        <form method = "GET" action = '/newpost'>
+            <button type="submit" display: inline-block>Add Blog Entry</button>
+    </div>
+    <div>
+        <a href= 'logout'>Logout</a>
+    </div>
+    <div>
+
+    </div>   -->    
+                                     <!-- child template mainly in the body  -->
+
+</body>
+</html>
