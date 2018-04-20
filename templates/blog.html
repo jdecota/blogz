@@ -7,7 +7,7 @@
     <hr />
     {% for blog in blogs %}
         <ul>
-            <li><h4>{{blog.title}}</h4></li>
+            <li><h4><a href= '/blog?id={{blog.id}}'>{{blog.title}}</a></h4></li>
             <p><h5>{{blog.body}}</h5></p>
         </ul>
     <hr />

@@ -20,6 +20,14 @@ class blog(db.Model):
         self.body = body
 
 @app.route('/blog')
+def blog_list():
+    if request.args.get('id'):
+        blog_id = int(request.args.get('id'))
+        single_id = blog.query.get(blog_id) 
+        return render_template('Blog-single.html', blog=single_id )
+    blogs = blog.query.all() 
+    return render_template('blog.html',blogs=blogs)
+
 def redirect_blog():
     return redirect ('/')
 
@@ -33,23 +41,10 @@ def new_post():
             new_post = blog(title,body)
             db.session.add(new_post)
             db.session.commit()
-            return redirect ('/')
+            return redirect ('/blog?id='+str(new_post.id))
         if not body and not title:
             flash("Text Required In All Fields")
     return render_template('newpost.html')
-
-#  Else:
- #       return redirect('/')
-    #   blogs = blog.query.all()   
-    #   blog_title = blog.title
-    #   blog_body = blog.body
-    #return """ <a href="localhost:5000 """
-
-@app.route('/', methods=['GET','POST'])
-def index():
-
-    blogs = blog.query.all() 
-    return render_template('blog.html',blogs=blogs)  #variable for for loop
 
 if __name__ == '__main__':
     app.run()
